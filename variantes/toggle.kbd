@@ -1,0 +1,51 @@
+;; Kanata: mouse con el teclado
+;; CapsLock          -> activa / desactiva el modo mouse (toggle)
+;; Esc               -> también sale del modo mouse
+;; Shift + CapsLock  -> CapsLock normal (mayúsculas)
+;; Modo mouse:
+;;   I J K L       : mover puntero (arriba/izq/abajo/der), con aceleración
+;;   F o Espacio   : clic izquierdo (mantener = arrastrar)
+;;   D             : clic derecho
+;;   S             : clic del medio
+;;   U / O         : scroll arriba / abajo
+;;   A (mantenido) : modo preciso, 30% de velocidad
+
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps esc
+  i    j    k    l
+  f    spc  d    s
+  u    o
+  a
+)
+
+(defalias
+  cap  (fork (layer-switch mouse) caps (lsft rsft))
+  off  (layer-switch base)
+  mu   (movemouse-accel-up    4 700 1 16)
+  ml   (movemouse-accel-left  4 700 1 16)
+  md   (movemouse-accel-down  4 700 1 16)
+  mr   (movemouse-accel-right 4 700 1 16)
+  wu   (mwheel-up   50 120)
+  wd   (mwheel-down 50 120)
+  slow (movemouse-speed 30)
+)
+
+(deflayer base
+  @cap esc
+  i    j    k    l
+  f    spc  d    s
+  u    o
+  a
+)
+
+(deflayer mouse
+  @off @off
+  @mu  @ml  @md  @mr
+  mlft mlft mrgt mmid
+  @wu  @wd
+  @slow
+)
