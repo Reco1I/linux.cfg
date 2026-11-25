@@ -1,0 +1,40 @@
+// Atajos de niri con cruceta IJKL (I=arriba J=izq K=abajo L=der), a juego con Kanata.
+// Se carga con `include "binds-ijkl.kdl"` al FINAL de ~/.config/niri/config.kdl,
+// después de los include de dms: niri usa el último bind definido, así que
+// esto pisa lo que Dux/DMS genere en dms/binds.kdl.
+binds {
+    // Foco entre columnas/ventanas
+    Mod+J { focus-column-left; }
+    Mod+K { focus-window-down; }
+    Mod+I { focus-window-up; }
+    Mod+L { focus-column-right; }
+
+    // Mover columnas/ventanas
+    Mod+Shift+J { move-column-left; }
+    Mod+Shift+K { move-window-down; }
+    Mod+Shift+I { move-window-up; }
+    Mod+Shift+L { move-column-right; }
+
+    // Foco entre monitores
+    Mod+Ctrl+J { focus-monitor-left; }
+    Mod+Ctrl+K { focus-monitor-down; }
+    Mod+Ctrl+I { focus-monitor-up; }
+    Mod+Ctrl+L { focus-monitor-right; }
+
+    // Mover columna a otro monitor
+    Mod+Shift+Ctrl+J { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+K { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+I { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
+
+    // Workspaces en U (abajo) / O (arriba), porque I ahora es "arriba" de la cruceta
+    Mod+U       { focus-workspace-down; }
+    Mod+O       { focus-workspace-up; }
+    Mod+Ctrl+U  { move-column-to-workspace-down; }
+    Mod+Ctrl+O  { move-column-to-workspace-up; }
+    Mod+Shift+U { move-workspace-down; }
+    Mod+Shift+O { move-workspace-up; }
+
+    // Overview pasa de Mod+O a Mod+H
+    Mod+H repeat=false { toggle-overview; }
+}
