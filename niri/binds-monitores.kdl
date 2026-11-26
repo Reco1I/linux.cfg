@@ -1,0 +1,14 @@
+// Atajos para moverse entre los dos monitores (DP-1 / DP-2).
+// Se incluye al final de config.kdl para pisar lo que genere DMS.
+binds {
+    // Teclado: Super+º alterna el foco, Super+Shift+º manda la ventana al otro monitor
+    Mod+Grave       { focus-monitor-next; }
+    Mod+Shift+Grave { move-column-to-monitor-next; }
+
+    // Mouse: Super+clic rueda manda la ventana al otro monitor
+    Mod+MouseMiddle  { move-column-to-monitor-next; }
+
+    // Mouse con botones laterales: Super+atrás / Super+adelante
+    Mod+MouseBack    { move-column-to-monitor-previous; }
+    Mod+MouseForward { move-column-to-monitor-next; }
+}
