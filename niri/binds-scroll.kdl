@@ -1,0 +1,8 @@
+// Scroll con Super: invierte lo que trae DMS.
+// Super+Scroll recorre las ventanas del workspace, Super+Shift+Scroll cambia de workspace.
+binds {
+    Mod+WheelScrollDown       { focus-column-right; }
+    Mod+WheelScrollUp         { focus-column-left; }
+    Mod+Shift+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+Shift+WheelScrollUp   cooldown-ms=150 { focus-workspace-up; }
+}

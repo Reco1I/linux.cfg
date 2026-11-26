@@ -253,3 +253,4 @@ include "dms/windowrules.kdl"
 
 // Atajos propios para dos monitores. Tiene que ir después de los include de dms.
 include "binds-monitores.kdl"
+include "binds-scroll.kdl"
